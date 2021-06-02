@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sancreek&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@font-face {
+  font-family: "unknown";
+  src: url("/unknown/TTF/Unknown-RND.ttf");
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #473d71;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: space-around;
+      -ms-flex-align: space-around;
+          align-items: space-around;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  margin: 0;
+}
+
+.container {
+  width: 967px;
+  height: 547px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #f5bd89;
+  border-radius: 21px 21px 21px 56px;
+  -webkit-box-shadow: 13px 13px 2px 2px #30294b;
+          box-shadow: 13px 13px 2px 2px #30294b;
+  place-items: center;
+  z-index: 1;
+}
+
+.container canvas {
+  background-color: #c5935a;
+  width: 90%;
+  height: 90%;
+  z-index: 3;
+}
+
+.container button {
+  font-family: #f5bd89;
+  font-size: 18pt;
+  padding: 15px 25px;
+  border-radius: 25px;
+  border-color: #9c27b0;
+  border-width: 5px;
+  background-color: #D7D0F1;
+}
+
+.container button:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */
