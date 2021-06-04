@@ -52,17 +52,28 @@ body{
     box-shadow: 13px 13px 2px 2px #30294b;
     place-items: center;
     z-index: 1;
-    // .box{
+    .box{
+        @include rect(100%, 100%, $sunset, row, right);
+        justify-content: center;
+        align-items: center;
+        border-radius: 21px 21px 21px 56px;
+
         canvas{
+            border-radius: 21px 21px 21px 56px;
+            justify-content: center;
+            align-items: center;
             background-color: $canvasOrange;
             width: 90%;
             height: 90%;
             z-index: 3;
         }
 
-    // }
+    }
 
     button{
+        justify-content: center;
+        align-items: center;
+        position: absolute;
         font-family: $sunset;
         font-size: 18pt;
         padding: 15px 25px;
@@ -70,6 +81,7 @@ body{
         border-color: #9c27b0;
         border-width: 5px;
         background-color: $accentPurple;
+        z-index: 4;
         @include hovering();
     }
 }
