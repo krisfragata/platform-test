@@ -9,7 +9,7 @@
 }
 
 $mainPurple: #473d71;
-$sunset: #f5bd89;
+$sunset: hsl(29, 84%, 75%);
 $accentPurple: #D7D0F1;
 $titleOrange: #DAA270;
 $textAccPurple: #A195D6;
@@ -17,7 +17,7 @@ $promptVal: #FBF3E5;
 $mainFont: "Press Start 2p";
 $smallText: "Ubuntu";
 $popUp: #C4C4C4;
-$canvasOrange: rgb(197, 147, 90);
+$canvasOrange: rgba(255, 203, 108 , 0.75);
 
 
 @mixin rect($width, $height, $color, $direction, $justify){

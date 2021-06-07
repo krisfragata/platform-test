@@ -1,18 +1,18 @@
-const Display = function(canvas){
-    this.buffer = document.createElement('canvas').getContext('2d');
-    this.c = canvas.getContext('2d');
+    const Display = function(canvas){
+        this.canvas = document.querySelector("#canvas");
+        this.c = canvas.getContext('2d');
 
-    this.drawRect = (x, y, width, height, color)=>{
-        this.buffer.fillStyle = color;
-        this.buffer.fillRect(Math.floor(x), Math.floor(y), width, height)
+        this.renderPlayer = (x, y, width, height, color)=>{
+            this.c.fillStyle = color;
+            this.c.fillRect(Math.floor(x), Math.floor(y), width, height);
+        }
+
+        this.renderCanvas = (color)=>{
+            this.c.fillStyle = color;
+            this.c.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        }
+
+        // this.render = ()=>{this.c.drawImage(this.canvas, 0, 0, this.canvas.width, this.canvas.height, 0, 0, this.c.width, this.c.height);}
+
     }
 
-    this.fill = (color)=>{
-        this.buffer.fillStyle = color;
-        this.buffer.fillRect = (0,0, this.buffer.canvas.width, this.buffer.canvas.height);
-    }
-
-
-};
-
-Display.prototype = { constructor: Display}
