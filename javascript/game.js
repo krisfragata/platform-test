@@ -1,7 +1,7 @@
     const canvas = document.querySelector('#canvas');
     const Game = function(){
         this.world = {
-            backgroundColor: "rgba(255, 209, 108, 0.45)",
+            backgroundColor: "rgba(255, 203, 108, 0.25)",
             // "rgba(197, 147, 90, 0.25)",
             player: new Game.Player(),
             friction: 0.7,
