@@ -30,12 +30,23 @@ window.addEventListener('load', function(e){
     function keyPress(e){
         controller.keyPress(e.type, e.keyCode);
     }
-
+    
+    let jumpCount = 0;
     function update(){
         if(controller.left.active){  game.world.player.moveLeft();}
         if(controller.right.active) {game.world.player.moveRight();}
-        if(controller.jump.active){ game.world.player.jumping();}
+        if(controller.jump.active && controller.jump.jumpCount<2){ 
+            // let jumpCount = 0;
+            game.world.player.jumping(); 
+            controller.jump.active =false;
+            return;
+        }
+        else if(game.world.player.grounded){
+            controller.jump.jumpCount = 0;
+        }
 
+        
+        if(controller.down.active){game.world.player.down();}
         game.update();
         render();
     }
@@ -51,7 +62,7 @@ window.addEventListener('load', function(e){
          window.addEventListener('keyup', keyPress);
          render();
          update();
-         setInterval(update, 30);
+         setInterval(update, 22);
     }
 
 })
