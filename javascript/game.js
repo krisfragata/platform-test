@@ -10,10 +10,14 @@
             height: innerHeight,
 
             collide: function(obj){
-                if(obj.x<0){obj.x = 0; obj.xVel = 0}
+                if(obj.x<0){obj.x = 0; obj.xVel = 0;}
                 else if(obj.x + obj.width > this.width){ obj.x = this.width - obj.width; obj.xVel = 0;}
                 else if(obj.y + obj.height > this.height){ obj.y = this.height-obj.height; obj.jump = false; obj.yVel= 0; this.player.grounded = true;}
+                if(obj.x<=10 || obj.x +obj.width > this.width - 10){this.player.isTouchingFront = true;}
+                else{this.player.isTouchingFront = false}
+
             },
+
 
             update: function(){
                 this.player.yVel += this.gravity;
@@ -38,6 +42,9 @@
         this.jump =true;
         this.height = 70;
         this.width = 50;
+        this.wallSlideVel = 0;
+        this.wallJumpTime = 1000;
+        // this.wallJumpVel = 20;
     }
 
     Game.Player.prototype = {
@@ -46,17 +53,31 @@
         moveLeft: function(){this.xVel -= 4.5;},
         moveRight: function(){this.xVel += 4.5;},
         jumping: function(){
-            // this.yDelta = initial - this.y; 
-            // console.log(initial)
-                this.yVel -= 75;
+                this.yVel -= 65;
                 this.jump = true; 
                 this.grounded = false;
-            
         },
-        grounded: true,
+       
+
+
         down: function(){
             this.yVel += 20;
         },
+
+        // wallJump: false,
+        grounded: true,
+
+        isTouchingFront: false,
+
+        wallSliding: false,
+
+        wallJump: false,
+
+        wallJumping: function(){
+            this.yVel -= 30;
+            this.wallJump = true;
+        },
+
         update: function(){
             this.x += this.xVel;
             this.y += this.yVel;

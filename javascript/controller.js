@@ -8,12 +8,17 @@ const Controller = function(){
         switch(keycode){
             case 65: this.left.checkPress(active);
             break;
+            case 37: this.left.checkPress(active);
+            break;
             case 68: this.right.checkPress(active); 
+            break;
+            case 39: this.right.checkPress(active);
             break;
             case 32: this.jump.checkPress(active);
             this.jump.jumpCounter(type);
             break;
             case 83: this.down.checkPress(active);
+            case 40: this.down.checkPress(active);
         }
     }
 }
@@ -48,6 +53,7 @@ Controller.input.prototype = {
         if(type == "keyup"){
             this.jumpCount += 1;
         }
+        console.log(this.jumpCount)
     }, 
 
 }

@@ -35,8 +35,7 @@ window.addEventListener('load', function(e){
     function update(){
         if(controller.left.active){  game.world.player.moveLeft();}
         if(controller.right.active) {game.world.player.moveRight();}
-        if(controller.jump.active && controller.jump.jumpCount<2){ 
-            // let jumpCount = 0;
+        if((controller.jump.active && controller.jump.jumpCount<2)){ 
             game.world.player.jumping(); 
             controller.jump.active =false;
             return;
@@ -44,11 +43,39 @@ window.addEventListener('load', function(e){
         else if(game.world.player.grounded){
             controller.jump.jumpCount = 0;
         }
+        if(game.world.player.isTouchingFront && !game.world.player.grounded &&(controller.left.active || controller.right.active)){
+            game.world.player.wallSliding = true;
+            console.log('wallslide');
+        }
+        else{
+            game.world.player.wallSliding = false;
+        }
+        if(game.world.player.wallSliding == true){
+            game.world.player.yVel = game.world.player.wallSlideVel
+        }
 
+        if(game.world.player.wallSliding && controller.jump.active){
+            game.world.player.wallJump = true;
+            setInterval(wallJumpFalse(), game.world.player.wallJumpTime)
+        }
+
+        if(game.world.player.wallJump){
+            game.world.player.wallJumping();
+            controller.jump.active = false;
+        }
+        else if(game.world.player.wallSliding){
+            controller.jump.jumpCount = 0;
+            // controller.jump.active = false;
+        }
+    
         
         if(controller.down.active){game.world.player.down();}
         game.update();
         render();
+    }
+
+    function wallJumpFalse(){
+        game.world.player.wallJump = false;
     }
         
     start.addEventListener('click', ()=>{

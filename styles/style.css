@@ -68,7 +68,6 @@ body {
 }
 
 .container .box canvas {
-  border-radius: 21px 21px 21px 56px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
